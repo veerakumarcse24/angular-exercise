@@ -13,6 +13,9 @@ module.exports = function (config) {
       require('@angular-devkit/build-angular/plugins/karma')
     ],
     client: {
+      jasmine: {
+        timeoutInterval: 100000
+      },
       clearContext: false // leave Jasmine Spec Runner output visible in browser
     },
     coverageIstanbulReporter: {
@@ -26,6 +29,10 @@ module.exports = function (config) {
     logLevel: config.LOG_INFO,
     autoWatch: true,
     browsers: ['Chrome'],
+    captureTimeout: 510000,
+    browserDisconnectTolerance: 3, 
+    browserDisconnectTimeout : 510000,
+    browserNoActivityTimeout : 510000,
     singleRun: false,
     restartOnFileChange: true
   });
