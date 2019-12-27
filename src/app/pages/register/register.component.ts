@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, ReactiveFormsModule} from '@angular/forms';
+import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-register',
@@ -18,7 +18,8 @@ export class RegisterComponent implements OnInit {
     this.clearRegisterForm();
   }
 
-   clearRegisterForm()
+  /* clear the register form */
+  clearRegisterForm()
   {
     this.fromSubmitted = false;
     this.registerForm = this.formBuilder.group({
@@ -33,13 +34,18 @@ export class RegisterComponent implements OnInit {
     });
   }
 
+  /* return the form control */
   get reg_form() { return this.registerForm.controls; }
 
+  /* registration form submit */
   submitRegisterForm()
   {
     this.fromSubmitted = true;
     if(this.registerForm.valid){
       console.log(this.registerForm.value);
+      return true;
+    }else{
+      return false;
     }
   }
 

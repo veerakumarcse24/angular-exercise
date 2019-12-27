@@ -2,6 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { RegisterComponent } from './register.component';
+import { NumberDirective } from '../../directives/numbers-only.directive';
 
 describe('RegisterComponent', () => {
   let component: RegisterComponent;
@@ -14,7 +15,9 @@ describe('RegisterComponent', () => {
         FormsModule,
         ReactiveFormsModule
       ],
-      declarations: [ RegisterComponent ]
+      declarations: [ 
+        NumberDirective,
+        RegisterComponent ]
     })
     .compileComponents();
   }));
@@ -64,6 +67,36 @@ describe('RegisterComponent', () => {
       mobile_number: '9095283825'
     };
     setFormValues(data);
-    expect(component.registerForm.valid).toBeTruthy();
-   })
+    expect(component.registerForm.valid).toBeFalsy();
+   });
+
+   it('should retrun true submitRegisterForm', () => {
+    component.clearRegisterForm();
+    const data = {
+      title_code: 1,
+      first_name: 'Veerakumar',
+      mobile_number: '9095283825',
+      nationality: 1,
+      dob: '24-03-1995',
+      address: 'Madurai',
+      duration: 1,
+      marital_status: 1
+    };
+    setFormValues(data);
+    expect(component.submitRegisterForm()).toBeTruthy();
+   });
+
+   it('should retrun false submitRegisterForm', () => {
+    component.clearRegisterForm();
+    const data = {};
+    setFormValues(data);
+    expect(component.submitRegisterForm()).toBeFalsy();
+   });
+
+   it('should retrun form controls', () => {
+    component.clearRegisterForm();
+    const data = {};
+    setFormValues(data);
+    expect(component.reg_form).toEqual(component.registerForm.controls);
+   });
 });

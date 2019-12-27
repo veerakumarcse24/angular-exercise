@@ -1,75 +1,73 @@
 <div class="clearfix">
-     <div>
-        <form name="registerForm" class="form-horizontal edit-user" [formGroup]="registerForm" (ngSubmit)="submitRegisterForm()">
-          <div class="form-group" [ngClass]="{'has-error': (fromSubmitted && reg_form.title_code.errors)}">
-            <label class="col-sm-4 control-label">Title Code</label>
-            <div class="col-sm-8">
-                <label class="radio-inline">
-                <input type="radio" name="title_code" formControlName="title_code" value="1"> <span class="text-uppercase" >Mr.</span>
-                </label>
-                <label class="radio-inline">
-                <input type="radio" name="title_code" formControlName="title_code" value="2"> <span class="text-uppercase" >Mrs.</span>
-                </label>
-                <label class="radio-inline">
-                <input type="radio" name="title_code" formControlName="title_code" value="3"> <span class="text-uppercase" >Miss.</span>
-                </label>
+   <div>
+      <form name="registerForm" class="form-horizontal edit-user" [formGroup]="registerForm" (ngSubmit)="submitRegisterForm()">
+
+      <div class="form-group" [ngClass]="{'has-error': (fromSubmitted && reg_form.title_code.errors)}">
+         <label class="control-label">Title Code</label>
+         <div class="row">
+            <div class="col-sm-4 custom-div-radio first-div-radio p-t-4">
+               <input type="radio" name="title_code" formControlName="title_code" [value]="1" id="mr">
+               <label  for="mr" class="radio-inline m-l-4">MR.</label>
             </div>
-          </div>
-        <div class="form-group" [ngClass]="{'has-error': (fromSubmitted && reg_form.first_name.errors)}">
-           <label class="col-sm-4 control-label text-uppercase"><span>First name</span></label>
-           <div class="col-sm-8">
-              <input type="text" name="first_name" class="form-control input-sm" formControlName="first_name" autocomplete="off">
-           </div>
-        </div>
-        <div class="form-group" [ngClass]="{'has-error': (fromSubmitted && reg_form.mobile_number.errors)}">
-            <label class="col-sm-4 control-label text-uppercase"><span>Phone number</span></label>
-            <div class="col-sm-8">
-               <input type="text" name="mobile_number" class="form-control input-sm" formControlName="mobile_number" autocomplete="off">
+               
+            <div class="col-sm-4 custom-div-radio p-t-4">
+               <input type="radio" name="title_code" formControlName="title_code" [value]="2" id="mrs">
+               <label for="mrs" class="radio-inline m-l-4">MRS.</label>
+            </div>
+               
+            <div class="col-sm-4 custom-div-radio last-div-radio p-t-4">
+               <input type="radio" name="title_code" formControlName="title_code" [value]="3" id="miss">
+               <label for="miss" class="radio-inline m-l-4">MISS.</label>
             </div>
          </div>
-         <div class="form-group" [ngClass]="{'has-error': (fromSubmitted && reg_form.nationality.errors)}">
-            <label class="col-sm-4 control-label text-uppercase"><span>Nationality</span></label>
-            <div class="col-sm-8">
-               <select class="form-control emergencyType input-sm" name="nationality" id="nationality" formControlName="nationality" autocomplete="off">
-                  <option [value]="country.id" *ngFor="let country of countries">{{country.name}}</option>
-               </select>
+      </div>
+      
+      <div class="form-group" [ngClass]="{'has-error': (fromSubmitted && reg_form.first_name.errors)}">
+         <label class="control-label" for="fname">First name</label>
+         <input type="email" class="form-control" id="fname" formControlName="first_name" autocomplete="off">
+      </div>
+      <div class="form-group" [ngClass]="{'has-error': (fromSubmitted && reg_form.mobile_number.errors)}">
+         <label class="control-label" for="phone">Phone number</label>
+         <input numbersOnly type="text" id="phone" name="mobile_number" class="form-control" formControlName="mobile_number" autocomplete="off">
+      </div>
+      <div class="form-group" [ngClass]="{'has-error': (fromSubmitted && reg_form.nationality.errors)}">
+         <label class="control-label" for="nationality">Nationality</label>
+         <select class="form-control" name="nationality" id="nationality" formControlName="nationality" autocomplete="off">
+         <option [value]="country.id" *ngFor="let country of countries">{{country.name}}</option>
+         </select>
+      </div>
+      <div class="form-group" [ngClass]="{'has-error': (fromSubmitted && reg_form.dob.errors)}">
+         <label class="control-label" for="dob">Birth date</label>
+         <input class="form-control" placeholder="yyyy-mm-dd" (click)="d.toggle()"
+            name="dp" formControlName="dob" ngbDatepicker #d="ngbDatepicker" id="dob">
+      </div>
+      <div class="form-group" [ngClass]="{'has-error': (fromSubmitted && reg_form.address.errors)}">
+         <label class="control-label" id="address">Address</label>
+         <input type="text" name="address" class="form-control" id="address" formControlName="address" autocomplete="off">
+      </div>
+      <div class="form-group" [ngClass]="{'has-error': (fromSubmitted && reg_form.duration.errors)}">
+         <label class="control-label" id="duration">Address Stay duration</label>
+         <input numbersOnly type="text" name="duration" class="form-control" id="duration" formControlName="duration" autocomplete="off">
+      </div>
+      <div class="form-group" [ngClass]="{'has-error': (fromSubmitted && reg_form.title_code.errors)}">
+         <label class="control-label">Marital Status</label>
+         <div class="row">
+            <div class="col-sm-6 custom-div-radio first-div-radio p-t-4">
+               <input type="radio" name="marital_status" formControlName="marital_status" value="1">
+               <label  for="mr" class="radio-inline m-l-4">Single</label>
+            </div>
+               
+            <div class="col-sm-6 custom-div-radio last-div-radio p-t-4">
+               <input type="radio" name="marital_status" formControlName="marital_status" value="2">
+               <label for="mrs" class="radio-inline m-l-4">Married</label>
             </div>
          </div>
-         <div class="form-group" [ngClass]="{'has-error': (fromSubmitted && reg_form.dob.errors)}">
-            <label class="col-sm-4 control-label text-uppercase"><span>Birth date</span></label>
-            <div class="col-sm-8">
-               <input class="form-control" placeholder="yyyy-mm-dd" (click)="d.toggle()"
-               name="dp" formControlName="dob" ngbDatepicker #d="ngbDatepicker">
-            </div>
+      </div>
+      <div class="form-group">
+         <div class="col-xs-12 submit_section">
+            <button class="btn btn-primary" type="submit" ><span>Next</span></button>
          </div>
-         <div class="form-group" [ngClass]="{'has-error': (fromSubmitted && reg_form.address.errors)}">
-            <label class="col-sm-4 control-label text-uppercase"><span>Address</span></label>
-            <div class="col-sm-8">
-               <input type="text" name="address" class="form-control input-sm" formControlName="address" autocomplete="off">
-            </div>
-         </div>
-         <div class="form-group" [ngClass]="{'has-error': (fromSubmitted && reg_form.duration.errors)}">
-            <label class="col-sm-4 control-label text-uppercase"><span>Address Stay duration</span></label>
-            <div class="col-sm-8">
-               <input type="text" name="duration" class="form-control input-sm" formControlName="duration" autocomplete="off">
-            </div>
-         </div>
-         <div class="form-group" [ngClass]="{'has-error': (fromSubmitted && reg_form.marital_status.errors)}">
-            <label class="col-sm-4 control-label">Marital Status</label>
-            <div class="col-sm-8">
-                <label class="radio-inline">
-                <input type="radio" name="marital_status" formControlName="marital_status" value="1"> <span class="text-uppercase" >Single</span>
-                </label>
-                <label class="radio-inline">
-                <input type="radio" name="marital_status" formControlName="marital_status" value="2"> <span class="text-uppercase" >Married</span>
-                </label>
-            </div>
-          </div>
-          <div class="form-group">
-              <div class="col-sm-offset-2 col-sm-10 text-center">
-                 <button class="btn btn-sm btn-primary btn-fullradius" type="submit" ><span>Next</span></button>
-              </div>
-          </div>
-        </form>
-     </div>
-  </div>
+      </div>
+      </form>
+   </div>
+</div>

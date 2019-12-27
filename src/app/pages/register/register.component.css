@@ -1,19 +1,40 @@
-.flex-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 300px;
-  background-color: DodgerBlue;
+
+.has-error .form-control {
+  border-color: #a94442;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
 }
-.flex-container>div {
-  background-color: #f1f1f1;
-  color: white;
-  width: 100px;
-  height: 100px;
+.has-error .control-label {
+  color: #a94442;
 }
-.has-error {
-  border: 1px solid #DD3E3E !important;
-  color: #ffffff;
-  border-color: #ffffff;
-  background-color: #A30000 !important;
+.custom-div-radio{
+    background: #FFFFFF;
+    border: 1px solid #928686;
+    box-shadow: inset 0 1px 3px 0 rgba(0, 0, 0, 0.13);
+    height: 3rem;
+    justify-content: center;
+}
+.first-div-radio{
+  border-top-left-radius: 0.4rem;
+  border-bottom-left-radius: 0.4rem;
+}
+.last-div-radio{
+  border-top-right-radius: 0.4rem;
+  border-bottom-right-radius: 0.4rem;
+}
+.m-l-4{
+  margin-left: 0.4rem;
+}
+label {
+  display: inline-block;
+  max-width: 100%;
+  margin-bottom: 5px;
+  font-weight: 700;
+}
+.p-t-4 {
+  padding-top: 0.5rem;
+}
+
+.submit_section .btn-primary{
+  float: right;
 }

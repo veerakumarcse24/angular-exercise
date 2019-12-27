@@ -1,1 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
+.container{
+    width: 80%;
+    margin: 0 auto; /* Center the DIV horizontally */
+}
+.render-content{
+    width: 75%;
+    margin: auto;
+    margin-top: -26vh;
+    background: beige;
+    padding: 2%;
+    border-radius: 7px;
+}
